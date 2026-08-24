@@ -1,0 +1,8 @@
+{
+  "name": "PWA Sense Bridge Demo",
+  "short_name": "Sense Bridge",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#f4f0e8",
+  "theme_color": "#f4f0e8"
+}

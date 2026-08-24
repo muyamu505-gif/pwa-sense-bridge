@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#f4f0e8">
+  <link rel="manifest" href="./manifest.webmanifest">
+  <link rel="stylesheet" href="./styles.css">
+  <title>PWA Sense Bridge</title>
+</head>
+<body>
+  <main>
+    <header>
+      <p class="eyebrow">PWA Sense Bridge</p>
+      <h1>让网页感受到现实动作</h1>
+      <p class="lede">把吹气、转动、摇晃与触摸转换成可交给任意 LLM 的结构化事件。原始传感器数据默认不离开设备。</p>
+    </header>
+
+    <section class="panel" aria-labelledby="capabilityTitle">
+      <div class="section-head"><h2 id="capabilityTitle">这台设备</h2><span id="secureBadge"></span></div>
+      <div class="capabilities" id="capabilities"></div>
+    </section>
+
+    <section class="panel" aria-labelledby="senseTitle">
+      <div class="section-head"><h2 id="senseTitle">感知开关</h2><span id="modeLabel">事件会输出到下方</span></div>
+      <div class="switches">
+        <button data-sensor="blow"><span>≈</span><b>吹气</b><small>需要麦克风权限</small><i></i></button>
+        <button data-sensor="rotation"><span>↻</span><b>转动</b><small>自动校准左右方向</small><i></i></button>
+        <button data-sensor="shake"><span>⌁</span><b>摇晃</b><small>识别明显动作</small><i></i></button>
+        <button data-sensor="touch"><span>◌</span><b>触摸</b><small>长按页面空白处</small><i></i></button>
+      </div>
+      <button class="camera" id="cameraButton">选择一张相机照片</button>
+      <p class="status" id="status" role="status"></p>
+    </section>
+
+    <section class="panel event-panel" aria-labelledby="eventTitle">
+      <div class="section-head"><h2 id="eventTitle">最新事件</h2><button class="quiet" id="localOnly" aria-pressed="true">仅本地测试：开</button></div>
+      <pre id="eventOutput">等待动作…</pre>
+    </section>
+
+    <details class="diagnostics panel">
+      <summary>兼容性诊断</summary>
+      <pre id="diagnosticOutput">等待传感器数据…</pre>
+      <button class="quiet" id="copyDiagnostic">复制诊断报告</button>
+    </details>
+  </main>
+  <script type="module" src="./app.js"></script>
+</body>
+</html>

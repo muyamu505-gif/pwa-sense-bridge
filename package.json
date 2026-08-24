@@ -1,0 +1,14 @@
+{
+  "name": "pwa-sense-bridge",
+  "version": "0.1.0",
+  "description": "Privacy-first mobile sensor events for LLM-powered PWAs",
+  "type": "module",
+  "exports": "./src/sense-bridge.js",
+  "files": ["src", "README.md", "LICENSE"],
+  "scripts": {
+    "test": "node --test",
+    "demo": "npx --yes serve . -l 4173"
+  },
+  "keywords": ["pwa", "sensors", "ios", "android", "llm", "device-motion"],
+  "license": "MIT"
+}
