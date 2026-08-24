@@ -15,7 +15,13 @@ const bridge = new SenseBridge({
     output.textContent = JSON.stringify(event, null, 2);
     // 实时推送给茗夏
     if (window.MingxiaBridge) {
-      window.MingxiaBridge.sendToMingxia(event);
+      window.MingxiaBridge.sendToMingxia(event).then((ok) => {
+        status.textContent = ok ? `已推送给茗夏 ✓ (${event.event})` : `推送失败 ✗ (${event.event})`;
+        if (!ok) console.error('[SenseBridge→茗夏] 推送失败:', event);
+      });
+    } else {
+      status.textContent = 'MingxiaBridge 未加载 ✗';
+      console.error('[SenseBridge→茗夏] mingxia-bridge.js 未加载');
     }
   }
 });
