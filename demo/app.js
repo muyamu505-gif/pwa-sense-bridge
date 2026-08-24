@@ -10,10 +10,13 @@ const status = document.getElementById('status');
 const enabled = new Set();
 
 const bridge = new SenseBridge({
-  localOnly: true,
+  localOnly: false,
   onEvent(event) {
-    // Replace this with fetch('/your-llm-endpoint', { ... }).
     output.textContent = JSON.stringify(event, null, 2);
+    // 实时推送给茗夏
+    if (window.MingxiaBridge) {
+      window.MingxiaBridge.sendToMingxia(event);
+    }
   }
 });
 
